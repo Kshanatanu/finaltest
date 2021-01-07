@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        body{
+        margin:0;
+        background:#f2f2f2f;
+        }
+        .nav{
+        width:100%;
+        background:#000033;
+        height:80px;
+        }
+        ul{
+        list-style:none;
+        padding:0;
+        margin:0;
+        position:absolute;
+        }
+        ul li{
+        float:left;
+        margin-top:20px;
+        }
+        ul li a{
+        width:150px;
+        color:white;
+        display:block;
+        text-decoration:none;
+        font=size:20px;
+        text-align:center;
+        padding:10px;
+        border-radius:10px;
+        font-faimly:Century Gothic;
+        font-weight:bold;
+        }
+        a:hover{
+        background:#669900;
+        }
+        ul li ul{
+        background:#000033;
+        }
+        ul li ul li {
+        float:none;
+        }
+        ul li ul{
+        display:none;
+        }
+        ul li:hover ul{
+        display:block;
+        }
+    </style>
+</head>
+<body background="{% static 'nvz/image/b3.jpg' %}">
+<div class ="nav">
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a> </li>
+        <li><a href="{% url 'allfunc' %}">Activity</a></li>
+        <li><a href="{% url 'Admins' %}">Admin</a> </li>
+        <li><a href="{% url 'about' %}">About</a> </li>
+        <li><a href="{% url 'contact' %}">contact</a> </li>
+        <li><a href="#">Feedback</a> </li>
+        <li><a href="#">Feedback</a> </li>
+    </ul>
+
+</div>
+<center>
+    <img src="{{ key.photo.url }}" width="400" height="300"><br>
+<h1 style="color:Pink;">{{key.fname}}</h1>
+    Organised by<h2 style="color:Pink;">{{key.branch}}</h2>
+    Volunteer name<h3 style="color:Pink;">{{key.vname}} {{ key.vnum }}</h3>
+    Venue is <b style="color:Pink;">{{ key.venue }}</b><br>
+<a href="{% url 'sregister' key.id %}"><button style="Pink"> Register</button></a>
+<a href="{% url 'home' %}"><button>Back</button></a>
+</center>
+</body>
+</html>

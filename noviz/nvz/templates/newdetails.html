@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <img src="{{ key.photo.url }}" width="400" height="300"><br>
+<h1 style="color:Pink;">{{key.fname}}</h1>
+    Organised by<h2 style="color:Pink;">{{key.branch}}</h2>
+    Volunteer name<h3 style="color:Pink;">{{key.vname}} {{ key.vnum }}</h3>
+    Venue is <b style="color:Pink;">{{ key.venue }}</b><br>
+</center>
+list of all  registered students for particular events
+{% for i in key.s_register_set.all %}
+<a href="{% url 'sdetails' i.id %}">{{i.name}}</a>
+{% endfor %}
+</body>
+</html>
